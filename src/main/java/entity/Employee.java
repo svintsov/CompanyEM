@@ -16,6 +16,6 @@ public class Employee {
 
   private int id;
   private String name;
-  private List<Department> departments;
+  private List<Integer> departments;
 
 }
