@@ -16,18 +16,6 @@ public class Servlet extends HttpServlet {
 
   private final static Logger logger = LogManager.getLogger();
 
-  public void doGet(HttpServletRequest request,
-      HttpServletResponse response) throws ServletException, IOException {
-    //logger.debug("Servlet GET Method");
-    //service(request, response);
-  }
-
-  public void doPost(HttpServletRequest request,
-      HttpServletResponse response) throws ServletException, IOException {
-    //logger.debug("Servlet Post Method");
-    //service(request, response);
-  }
-
   protected void service(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     logger.debug("Servlet starts");
