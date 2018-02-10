@@ -11,18 +11,15 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 @WebListener
 public class ContextListener implements ServletContextListener{
 
   private Map<String, Action> actions;
- // private static final Logger logger = LogManager.getLogger();
+
 
   @Override
   public void contextInitialized(ServletContextEvent servletContextEvent) {
-   // logger.info("Context init");
     actions = new ConcurrentHashMap<>();
     final ServletContext servletContext = servletContextEvent.getServletContext();
 
@@ -44,15 +41,12 @@ public class ContextListener implements ServletContextListener{
       }
     }
 
-
     servletContext.setAttribute("actions",actions);
-   // logger.info("Actions were set");
 
   }
 
   @Override
   public void contextDestroyed(ServletContextEvent servletContextEvent) {
     actions = null;
-   // logger.info("Context destroyed");
   }
 }

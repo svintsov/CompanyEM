@@ -14,33 +14,33 @@ import org.apache.logging.log4j.Logger;
 @WebServlet("/page/*")
 public class Servlet extends HttpServlet {
 
- // private static final Logger logger = LogManager.getLogger();
-
+  private final static Logger logger = LogManager.getLogger();
 
   public void doGet(HttpServletRequest request,
       HttpServletResponse response) throws ServletException, IOException {
-    service(request, response);
+    //logger.debug("Servlet GET Method");
+    //service(request, response);
   }
-
 
   public void doPost(HttpServletRequest request,
       HttpServletResponse response) throws ServletException, IOException {
-    service(request, response);
+    //logger.debug("Servlet Post Method");
+    //service(request, response);
   }
 
   protected void service(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-   // logger.info("Servlet work");
+    logger.debug("Servlet starts");
+
     try {
       Action action = ActionFactory.getAction(request);
       String view = action.execute(request, response);
-
-     // logger.info("Accessed page:"+view);
 
       request.getRequestDispatcher("/jsp/" + view + ".jsp").forward(request, response);
 
     } catch (Exception e) {
       throw new ServletException("Executing action failed.", e);
     }
+    logger.debug("Servlet ends");
   }
 }
