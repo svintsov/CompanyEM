@@ -1,4 +1,4 @@
-package servlet;
+package controller.servlet;
 
 import action.Action;
 import java.io.FileInputStream;
