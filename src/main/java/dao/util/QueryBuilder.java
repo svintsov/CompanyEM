@@ -23,9 +23,7 @@ public class QueryBuilder {
 
   public QueryBuilder table(String table) {
     query
-        .append("`")
         .append(table)
-        .append("`")
         .append(" ");
     return this;
   }
@@ -35,9 +33,7 @@ public class QueryBuilder {
     int length = names.length;
     for (int i = 0; i < length; i++) {
       query
-          .append("`")
-          .append(names[i])
-          .append("`");
+          .append(names[i]);
       if (i != length - 1) {
         query.append(",");
       }
@@ -130,9 +126,7 @@ public class QueryBuilder {
     query
         .append("SELECT")
         .append(" ")
-        .append("`")
         .append(column)
-        .append("`")
         .append(" ");
     return this;
   }

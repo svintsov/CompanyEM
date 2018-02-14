@@ -1,8 +1,10 @@
 package util.constant.general;
 
 public interface Global {
-  String USER_ROLE = "USER_ROLE";
-  String ADMIN_ROLE = "ADMIN_ROLE";
+  String CUSTOMER_ROLE = "Customer";
+  String ADMIN_ROLE = "Admin";
+  String EMPLOYEE_ROLE = "Employee";
+  String PM_ROLE = "PM";
   String ID = "id";
   String NAME = "name";
 }
