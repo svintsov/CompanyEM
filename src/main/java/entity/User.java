@@ -1,18 +1,14 @@
 package entity;
 
-import entity.proxy.UserProxy;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.Data;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode
+@Data
 public class User implements Entity<Integer>{
 
   private int id;
   private String email;
   private String password;
+  private Role role;
 
   @Override
   public Integer getId() {
@@ -40,41 +36,13 @@ public class User implements Entity<Integer>{
     this.password = password;
   }
 
-  public static final class UserBuilder {
-    private Integer id;
-    private String email;
-    private String password;
-
-    public UserBuilder setId(Integer id) {
-      this.id = id;
-      return this;
-    }
-
-    public UserBuilder setEmail(String email) {
-      this.email = email;
-      return this;
-    }
-
-    public UserBuilder setPassword(String password) {
-      this.password = password;
-      return this;
-    }
-
-
-    public User buildUser() {
-      User user = new User();
-      user.setId(id);
-      user.setEmail(email);
-      user.setPassword(password);
-      return user;
-    }
-
-    public User buildUserProxy() {
-      UserProxy user = new UserProxy();
-      user.setId(id);
-      user.setEmail(email);
-      user.setPassword(password);
-      return user;
-    }
+  public Role getRole() {
+    return role;
   }
+
+  public void setRole(Role role) {
+    this.role = role;
+  }
+
+
 }

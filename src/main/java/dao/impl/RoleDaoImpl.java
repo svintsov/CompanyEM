@@ -1,67 +1,104 @@
 package dao.impl;
 
-import static util.constant.table.RoleConstants.ID;
-import static util.constant.table.RoleConstants.NAME;
-import static util.constant.table.RoleConstants.TABLE;
+import static util.constant.SQLRoleColumns.ROLE_ID;
+import static util.constant.SQLRoleColumns.ROLE_NAME;
 
-import dao.AbstractDao;
 import dao.RoleDao;
-import dao.util.QueryBuilder;
+import dao.mapper.ObjectMapper;
+import dao.mapper.RoleMapper;
 import entity.Role;
-import entity.proxy.RoleProxy;
+import exception.DaoException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 
-public class RoleDaoImpl extends AbstractDao<Role> implements RoleDao {
+public class RoleDaoImpl implements RoleDao {
 
-  private RoleDaoImpl(Connection connection) {
-    super(TABLE, connection);
+  private Connection connection;
+  private static volatile RoleDaoImpl instance;
+  private ObjectMapper<Role> mapper;
+
+  public RoleDaoImpl(Connection connection) {
+    this.connection = connection;
+    this.mapper = new RoleMapper();
   }
 
-  private static final class RoleDaoImplHolder {
 
-    private static RoleDaoImpl instance(Connection connection) {
-      return new RoleDaoImpl(connection);
+  @Override
+  public Role create(final Role entity) throws DaoException {
+    return null;
+  }
+
+
+  @Override
+  public Role read(final String name) throws DaoException {
+    Role result = new Role();
+    result.setId(-1);
+
+    try (PreparedStatement statement = connection.prepareStatement(SQLRole.READ_BY_NAME.QUERY)) {
+      statement.setString(1, name);
+      final ResultSet rs = statement.executeQuery();
+
+      if (rs.next()) {
+        result = mapper.extractFromResultSet(rs);
+      }
+
+    } catch (SQLException e) {
+      throw new DaoException(e);
     }
-  }
 
-  public static RoleDaoImpl getInstance(Connection connection) {
-    return RoleDaoImplHolder.instance(connection);
-  }
-
-  @Override
-  public Role findByName(String value) throws SQLException {
-    String query = new QueryBuilder()
-        .selectAll()
-        .from()
-        .table(TABLE)
-        .where()
-        .condition(TABLE, NAME)
-        .build();
-    return getEntityByQuery(query, value);
-  }
-
-
-  @Override
-  protected String[] getParameterNames() {
-    return new String[]{NAME};
+    return result;
   }
 
   @Override
-  protected void setEntityParameters(Role entity, PreparedStatement statement) throws SQLException {
-    statement.setString(1, entity.getName());
+  public Role read(final int id) throws DaoException {
+    Role result = new Role();
+    result.setId(-1);
+
+    try (PreparedStatement statement = connection.prepareStatement(SQLRole.READ_BY_ID.QUERY)) {
+      statement.setInt(1, id);
+      final ResultSet rs = statement.executeQuery();
+
+      if (rs.next()) {
+        result = mapper.extractFromResultSet(rs);
+      }
+
+    } catch (SQLException e) {
+      throw new DaoException(e);
+    }
+
+    return result;
+  }
+
+
+  @Override
+  public Role update(final Role entity) throws DaoException {
+    return null;
   }
 
   @Override
-  protected Role getEntityFromResultSet(ResultSet resultSet) throws SQLException {
-    int id = resultSet.getInt(ID);
-    String name = resultSet.getString(NAME);
-    return new RoleProxy.RoleBuilder()
-        .setId(id)
-        .setName(name)
-        .buildRoleProxy();
+  public void delete(final String s) throws DaoException {
+
+  }
+
+
+  @Override
+  public List<Role> findAll() throws DaoException {
+    return null;
+  }
+
+
+  enum SQLRole {
+    READ_BY_NAME("SELECT * FROM my_role WHERE " + ROLE_NAME +" = (?)"),
+    READ_BY_ID("SELECT * FROM my_role WHERE "+ ROLE_ID +" = (?)");
+
+    String QUERY;
+
+    SQLRole(String QUERY) {
+      this.QUERY = QUERY;
+    }
   }
 }

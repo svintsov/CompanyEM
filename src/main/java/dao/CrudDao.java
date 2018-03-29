@@ -1,19 +1,18 @@
 package dao;
 
-import java.sql.SQLException;
+import exception.DaoException;
 import java.util.List;
 
-public interface CrudDao<T, ID> {
+public interface CrudDao<T, Key> {
 
-  T save(T entity) throws SQLException;
+  T create(T entity) throws DaoException;
 
-  T update(T entity) throws SQLException;
+  T read(Key key) throws DaoException;
 
-  T findOne(ID id) throws SQLException;
+  T update(T entity) throws DaoException;
 
-  List<T> findAll() throws SQLException;
+  void delete(Key key) throws DaoException;
 
-  void delete(ID id) throws SQLException;
+  List<T> findAll() throws DaoException;
 
-  List<T> findAll(long limit, long offset) throws SQLException;
 }

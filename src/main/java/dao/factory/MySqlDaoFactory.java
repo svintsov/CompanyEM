@@ -1,9 +1,7 @@
 package dao.factory;
 
 import dao.RoleDao;
-import dao.UserDao;
 import dao.impl.RoleDaoImpl;
-import dao.impl.UserDaoImpl;
 import java.sql.Connection;
 
 public class MySqlDaoFactory extends DaoFactory {
@@ -17,12 +15,7 @@ public class MySqlDaoFactory extends DaoFactory {
 
   @Override
   public RoleDao createRoleDao() {
-    return RoleDaoImpl.getInstance(connection);
-  }
-
-  @Override
-  public UserDao createUserDao() {
-    return UserDaoImpl.getInstance(connection);
+    return new RoleDaoImpl(connection);
   }
 
 
