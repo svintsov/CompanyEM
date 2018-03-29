@@ -4,6 +4,7 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>test</h1>
+    <h1>Home page</h1></br>
+    <a href="${pageContext.request.contextPath}/page/login">Login</a>
 </body>
 </html>

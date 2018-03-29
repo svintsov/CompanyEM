@@ -1,1 +1,30 @@
 2018-02-10 14:26:41.907 [http-nio-8081-exec-7] DEBUG action.ActionFactory - Path:/home
+2018-02-10 14:29:22.294 [http-nio-8081-exec-4] DEBUG Servlet - Servlet starts
+2018-02-10 14:29:22.302 [http-nio-8081-exec-4] DEBUG action.ActionFactory - Path:/home
+2018-02-10 14:29:22.350 [http-nio-8081-exec-4] DEBUG Servlet - Servlet ends
+2018-02-10 16:48:46.163 [http-nio-8081-exec-5] DEBUG Servlet - Servlet starts
+2018-02-10 16:48:46.170 [http-nio-8081-exec-5] DEBUG action.ActionFactory - Path:/home
+2018-02-10 16:48:46.295 [http-nio-8081-exec-5] DEBUG Servlet - Servlet ends
+2018-02-10 16:48:50.318 [http-nio-8081-exec-6] DEBUG Servlet - Servlet starts
+2018-02-10 16:48:50.319 [http-nio-8081-exec-6] DEBUG action.ActionFactory - Path:/org.apache.jasper.runtime.PageContextImpl@65a917ca+/page/login
+2018-02-10 16:49:36.130 [http-nio-8081-exec-9] DEBUG Servlet - Servlet starts
+2018-02-10 16:49:36.131 [http-nio-8081-exec-9] DEBUG action.ActionFactory - Path:/home
+2018-02-10 16:49:36.168 [http-nio-8081-exec-9] DEBUG Servlet - Servlet ends
+2018-02-10 16:51:13.464 [http-nio-8081-exec-3] DEBUG Servlet - Servlet starts
+2018-02-10 16:51:13.469 [http-nio-8081-exec-3] DEBUG action.ActionFactory - Path:/home
+2018-02-10 16:51:13.564 [http-nio-8081-exec-3] DEBUG Servlet - Servlet ends
+2018-02-10 16:51:17.040 [http-nio-8081-exec-4] DEBUG Servlet - Servlet starts
+2018-02-10 16:51:17.041 [http-nio-8081-exec-4] DEBUG action.ActionFactory - Path:/login
+2018-02-10 16:51:17.112 [http-nio-8081-exec-4] DEBUG Servlet - Servlet ends
+2018-02-10 16:52:03.871 [http-nio-8081-exec-4] DEBUG Servlet - Servlet starts
+2018-02-10 16:52:03.877 [http-nio-8081-exec-4] DEBUG action.ActionFactory - Path:/CompanyEm/page/home
+2018-02-10 16:53:09.222 [http-nio-8081-exec-6] DEBUG Servlet - Servlet starts
+2018-02-10 16:53:09.223 [http-nio-8081-exec-6] DEBUG action.ActionFactory - Path:/CompanyEm/page/home
+2018-02-10 16:53:19.487 [http-nio-8081-exec-7] DEBUG Servlet - Servlet starts
+2018-02-10 16:53:19.487 [http-nio-8081-exec-7] DEBUG action.ActionFactory - Path:/CompanyEm/page/home
+2018-02-10 16:53:36.837 [http-nio-8081-exec-4] DEBUG Servlet - Servlet starts
+2018-02-10 16:53:36.843 [http-nio-8081-exec-4] DEBUG action.ActionFactory - Path:/home
+2018-02-10 16:53:36.945 [http-nio-8081-exec-4] DEBUG Servlet - Servlet ends
+2018-02-10 16:53:38.772 [http-nio-8081-exec-5] DEBUG Servlet - Servlet starts
+2018-02-10 16:53:38.772 [http-nio-8081-exec-5] DEBUG action.ActionFactory - Path:/login
+2018-02-10 16:53:38.813 [http-nio-8081-exec-5] DEBUG Servlet - Servlet ends

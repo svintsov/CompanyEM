@@ -1,4 +1,4 @@
-package servlet;
+package controller.servlet;
 
 import action.Action;
 import java.io.FileInputStream;
@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebListener;
 
 @WebListener
 public class ContextListener implements ServletContextListener{
+
 
   private Map<String, Action> actions;
 
